@@ -7,8 +7,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/index.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="icon" type="image/x-icon" href="assets/ico32px.ico">
+    <link rel="apple-touch-icon" href="assets/ios180px.png">
 </head>
 <body>
+
+    <div id="global-loading-overlay">
+        <div class="spinner-cube-grid">
+            <div class="cube cube1"></div>
+            <div class="cube cube2"></div>
+            <div class="cube cube3"></div>
+            <div class="cube cube4"></div>
+            <div class="cube cube5"></div>
+            <div class="cube cube6"></div>
+            <div class="cube cube7"></div>
+            <div class="cube cube8"></div>
+            <div class="cube cube9"></div>
+        </div>
+        <p>Follow • Buzz • Popular</p>
+    </div>
 
     <audio id="bgMusic" loop>
         <source src="https://www.bensound.com/bensound-music/bensound-creativeminds.mp3" type="audio/mpeg">
@@ -16,7 +34,10 @@
 
     <header class="sticky-header">
         <div class="container header-wrapper">
-            <div class="logo">Citta<span>Buzz</span></div>
+            <div class="logo wave-text">
+                <img src="assets/aos48px.png" alt="Logo" class="mini-logo">
+                <span class="citta">Citta</span><span class="buzz">Buzz</span>
+            </div>
             
             <nav class="nav-desktop">
                 <a href="#hero" class="lang-id">Beranda</a><a href="#hero" class="lang-en hidden">Home</a>
@@ -44,11 +65,15 @@
             <span class="badge lang-id">🚀 Platform Interaksi Terbesar</span>
             <span class="badge lang-en hidden">🚀 Largest Interaction Platform</span>
             
-            <h1 class="lang-id">Tumbuh Bersama di <br><span class="text-gold">Media Sosial.</span></h1>
-            <h1 class="lang-en hidden">Grow Together on <br><span class="text-gold">Social Media.</span></h1>
+            <h1 class="lang-id">Tumbuh Bersama di <br>
+                <span class="wave-text"><span class="citta">Citta</span><span class="buzz">Buzz</span></span>
+            </h1>
+            <h1 class="lang-en hidden">Grow Together on <br>
+                <span class="wave-text"><span class="citta">Citta</span><span class="buzz">Buzz</span></span>
+            </h1>
             
-            <p class="lang-id">Dapatkan followers dan interaksi nyata dari komunitas CittaBuzz. 100% Manusia, Tanpa Bot.</p>
-            <p class="lang-en hidden">Get real followers and interactions from CittaBuzz community. 100% Human, No Bots.</p>
+            <p class="lang-id">Dapatkan followers dan interaksi nyata dari komunitas <span class="wave-text small-wave"><span class="citta">Citta</span><span class="buzz">Buzz</span></span>. 100% Manusia, Tanpa Bot.</p>
+            <p class="lang-en hidden">Get real followers and interactions from <span class="wave-text small-wave"><span class="citta">Citta</span><span class="buzz">Buzz</span></span> community. 100% Human, No Bots.</p>
             
             <div class="hero-btns">
                 <a href="login.html" class="btn-primary btn-lg lang-id">Masuk via Google</a>
@@ -59,49 +84,15 @@
         </div>
     </section>
 
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-title">
-                <h2 class="lang-id">Mengapa CittaBuzz?</h2>
-                <h2 class="lang-en hidden">Why CittaBuzz?</h2>
-            </div>
-            <div class="feature-grid">
-                <div class="card">
-                    <div class="icon-box"><i data-lucide="coins"></i></div>
-                    <h3 class="lang-id">Poin & Kredit</h3><h3 class="lang-en hidden">Points & Credits</h3>
-                    <p class="lang-id">Dapatkan poin gratis dengan membantu orang lain, tukar menjadi kredit Buzz.</p>
-                    <p class="lang-en hidden">Earn free points by helping others, exchange them for Buzz credits.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i data-lucide="award"></i></div>
-                    <h3 class="lang-id">Sistem Level</h3><h3 class="lang-en hidden">Level System</h3>
-                    <p class="lang-id">Naikkan level untuk mendapatkan bonus poin harian dan prioritas tampil.</p>
-                    <p class="lang-en hidden">Level up to get daily point bonuses and display priority.</p>
-                </div>
-                <div class="card">
-                    <div class="icon-box"><i data-lucide="shield-check"></i></div>
-                    <h3 class="lang-id">Gratis & Aman</h3><h3 class="lang-en hidden">Free & Safe</h3>
-                    <p class="lang-id">Gunakan semua fitur secara gratis tanpa perlu password media sosial Anda.</p>
-                    <p class="lang-en hidden">Use all features for free without needing your social media password.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="levels" class="level-info">
         <div class="container">
             <div class="flex-row">
                 <div class="text-side">
                     <h2 class="lang-id">Sistem Level & Reputasi</h2>
-                    <h2 class="lang-en hidden">Level & Reputation System</h2>
                     <p class="lang-id">Naikkan reputasimu dari Newbie hingga menjadi legenda.</p>
-                    <p class="lang-en hidden">Raise your reputation from Newbie to become a legend.</p>
                 </div>
-                
                 <div class="image-side">
-                    <div class="level-mockup">
-                        Level 10: Buzz Legend
-                    </div>
+                    <div class="level-mockup">Level 10: Buzz Legend</div>
                 </div>
             </div>
         </div>
@@ -109,7 +100,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 CittaBuzz. All rights reserved.</p>
+            <p>&copy; 2026 <span class="citta">Citta</span><span class="buzz">Buzz</span>. All rights reserved.</p>
         </div>
     </footer>
 
