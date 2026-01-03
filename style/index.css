@@ -1,0 +1,77 @@
+:root {
+    /* Light Mode Colors */
+    --bg-body: #ffffff;
+    --bg-header: rgba(255, 255, 255, 0.8);
+    --text-main: #1e293b;
+    --citta-blue: #0066FF;
+    --buzz-gold: #FFD700;
+    --buzz-gold-dark: #B8860B;
+    --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg-body: #0f172a;
+    --bg-header: rgba(15, 23, 42, 0.9);
+    --text-main: #f1f5f9;
+    --card-bg: #1e293b;
+}
+
+* { box-sizing: border-box; scroll-behavior: smooth; }
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.container { width: 90%; max-width: 1200px; margin: auto; }
+
+/* Header */
+.sticky-header {
+    position: fixed; top: 0; width: 100%;
+    backdrop-filter: blur(10px); background: var(--bg-header);
+    z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.header-wrapper { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--citta-blue); }
+.logo span { color: var(--buzz-gold-dark); }
+
+/* Controls */
+.controls { display: flex; gap: 15px; align-items: center; }
+.icon-btn { background: none; border: none; cursor: pointer; color: var(--text-main); }
+.text-btn { background: var(--citta-blue); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+
+/* Buttons */
+.btn-primary { background: var(--citta-blue); color: white; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; display: inline-block; }
+.btn-gold { background: var(--buzz-gold); color: #000; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; display: inline-block; }
+.btn-primary-sm { background: var(--citta-blue); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: bold; }
+
+/* Hero */
+.hero { padding: 160px 0 100px; text-align: center; }
+.hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.text-gold { color: var(--buzz-gold-dark); }
+.badge { background: rgba(0, 102, 255, 0.1); color: var(--citta-blue); padding: 8px 16px; border-radius: 20px; font-weight: 600; }
+
+/* Feature Cards */
+.features { padding: 80px 0; background: rgba(0, 102, 255, 0.02); }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+.card { background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); text-align: center; }
+.icon-box { color: var(--buzz-gold-dark); margin-bottom: 20px; }
+
+/* Shortcut Menu */
+.shortcut-menu {
+    position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 15px;
+    background: var(--citta-blue); padding: 15px 10px; border-radius: 50px; z-index: 999;
+}
+.shortcut-menu a { color: white; transition: 0.3s; }
+.shortcut-menu a:hover { color: var(--buzz-gold); }
+
+/* Level Section */
+.level-info { background: var(--text-main); color: var(--bg-body); padding: 80px 0; }
+.level-mockup { background: linear-gradient(45deg, var(--citta-blue), var(--buzz-gold)); padding: 50px; border-radius: 20px; font-weight: 800; color: white; }
+
+/* Helpers */
+.hidden { display: none !important; }
