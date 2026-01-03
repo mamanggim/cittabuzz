@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CittaBuzz - Social Growth Ecosystem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-creativeminds.mp3" type="audio/mpeg">
+    </audio>
+
+    <header class="sticky-header">
+        <div class="container header-wrapper">
+            <div class="logo">Citta<span>Buzz</span></div>
+            
+            <nav class="nav-desktop">
+                <a href="#hero" class="lang-id">Beranda</a><a href="#hero" class="lang-en hidden">Home</a>
+                <a href="#features" class="lang-id">Fitur</a><a href="#features" class="lang-en hidden">Features</a>
+                <a href="#levels" class="lang-id">Level</a><a href="#levels" class="lang-en hidden">Levels</a>
+            </nav>
+
+            <div class="controls">
+                <button id="musicToggle" class="icon-btn"><i data-lucide="music"></i></button>
+                <button id="langToggle" class="text-btn">EN</button>
+                <button id="themeToggle" class="icon-btn"><i data-lucide="sun"></i></button>
+                <a href="login.html" class="btn-primary-sm">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="shortcut-menu">
+        <a href="#hero"><i data-lucide="home"></i></a>
+        <a href="#features"><i data-lucide="star"></i></a>
+        <a href="#levels"><i data-lucide="trending-up"></i></a>
+    </div>
+
+    <section id="hero" class="hero">
+        <div class="container">
+            <span class="badge lang-id">🚀 Platform Interaksi Terbesar</span>
+            <span class="badge lang-en hidden">🚀 Largest Interaction Platform</span>
+            
+            <h1 class="lang-id">Tumbuh Bersama di <br><span class="text-gold">Media Sosial.</span></h1>
+            <h1 class="lang-en hidden">Grow Together on <br><span class="text-gold">Social Media.</span></h1>
+            
+            <p class="lang-id">Dapatkan followers dan interaksi nyata dari komunitas CittaBuzz. 100% Manusia, Tanpa Bot.</p>
+            <p class="lang-en hidden">Get real followers and interactions from CittaBuzz community. 100% Human, No Bots.</p>
+            
+            <div class="hero-btns">
+                <a href="login.html" class="btn-primary btn-lg lang-id">Masuk via Google</a>
+                <a href="login.html" class="btn-primary btn-lg lang-en hidden">Sign in with Google</a>
+                <a href="#features" class="btn-gold btn-lg lang-id">Beli Kredit</a>
+                <a href="#features" class="btn-gold btn-lg lang-en hidden">Buy Credits</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="lang-id">Mengapa CittaBuzz?</h2>
+                <h2 class="lang-en hidden">Why CittaBuzz?</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="card">
+                    <div class="icon-box"><i data-lucide="coins"></i></div>
+                    <h3 class="lang-id">Poin & Kredit</h3><h3 class="lang-en hidden">Points & Credits</h3>
+                    <p class="lang-id">Dapatkan poin gratis dengan membantu orang lain, tukar menjadi kredit Buzz.</p>
+                    <p class="lang-en hidden">Earn free points by helping others, exchange them for Buzz credits.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i data-lucide="award"></i></div>
+                    <h3 class="lang-id">Sistem Level</h3><h3 class="lang-en hidden">Level System</h3>
+                    <p class="lang-id">Naikkan level untuk mendapatkan bonus poin harian dan prioritas tampil.</p>
+                    <p class="lang-en hidden">Level up to get daily point bonuses and display priority.</p>
+                </div>
+                <div class="card">
+                    <div class="icon-box"><i data-lucide="shield-check"></i></div>
+                    <h3 class="lang-id">Gratis & Aman</h3><h3 class="lang-en hidden">Free & Safe</h3>
+                    <p class="lang-id">Gunakan semua fitur secara gratis tanpa perlu password media sosial Anda.</p>
+                    <p class="lang-en hidden">Use all features for free without needing your social media password.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="levels" class="level-info">
+        <div class="container flex-row">
+            <div class="text-side">
+                <h2 class="lang-id">Sistem Level & Reputasi</h2>
+                <h2 class="lang-en hidden">Level & Reputation System</h2>
+                <p class="lang-id">Dari <strong>Newbie</strong> hingga <strong>Buzz Master</strong>. Setiap level membuka peluang baru.</p>
+                <p class="lang-en hidden">From <strong>Newbie</strong> to <strong>Buzz Master</strong>. Every level unlocks new opportunities.</p>
+            </div>
+            <div class="image-side">
+                <div class="level-mockup">Level 5: Buzz Master</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CittaBuzz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
