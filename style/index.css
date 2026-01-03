@@ -1,12 +1,13 @@
 :root {
     /* Light Mode Colors */
     --bg-body: #ffffff;
-    --bg-header: rgba(255, 255, 255, 0.8);
+    --bg-header: rgba(255, 255, 255, 0.9);
     --text-main: #1e293b;
     --citta-blue: #0066FF;
     --buzz-gold: #FFD700;
     --buzz-gold-dark: #B8860B;
     --card-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
@@ -14,9 +15,13 @@
     --bg-header: rgba(15, 23, 42, 0.9);
     --text-main: #f1f5f9;
     --card-bg: #1e293b;
+    --shadow: rgba(0, 0, 0, 0.4);
 }
 
-* { box-sizing: border-box; scroll-behavior: smooth; }
+* { 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
+}
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -26,52 +31,245 @@ body {
     transition: all 0.3s ease;
 }
 
-.container { width: 90%; max-width: 1200px; margin: auto; }
+.container { 
+    width: 90%; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
 
-/* Header */
+/* --- HEADER FIX (Horizontal Alignment) --- */
 .sticky-header {
-    position: fixed; top: 0; width: 100%;
-    backdrop-filter: blur(10px); background: var(--bg-header);
-    z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(10px); 
+    background: var(--bg-header);
+    z-index: 1000; 
+    padding: 10px 0; 
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 }
-.header-wrapper { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.5rem; font-weight: 800; color: var(--citta-blue); }
-.logo span { color: var(--buzz-gold-dark); }
 
-/* Controls */
-.controls { display: flex; gap: 15px; align-items: center; }
-.icon-btn { background: none; border: none; cursor: pointer; color: var(--text-main); }
-.text-btn { background: var(--citta-blue); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+.header-wrapper { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
 
-/* Buttons */
-.btn-primary { background: var(--citta-blue); color: white; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; display: inline-block; }
-.btn-gold { background: var(--buzz-gold); color: #000; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; display: inline-block; }
-.btn-primary-sm { background: var(--citta-blue); color: white; text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: bold; }
+.nav-desktop {
+    display: flex;
+    gap: 20px;
+}
 
-/* Hero */
-.hero { padding: 160px 0 100px; text-align: center; }
-.hero h1 { font-size: 3.5rem; line-height: 1.2; margin-bottom: 20px; }
+.nav-desktop a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.nav-desktop a:hover {
+    color: var(--citta-blue);
+}
+
+/* --- CONTROLS --- */
+.controls { 
+    display: flex; 
+    gap: 12px; 
+    align-items: center; 
+}
+
+.icon-btn { 
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+}
+
+.text-btn { 
+    background: var(--citta-blue); 
+    color: white; 
+    border: none; 
+    padding: 5px 12px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 0.8rem;
+}
+
+/* --- BUTTONS --- */
+.btn-primary { 
+    background: var(--citta-blue); 
+    color: white; 
+    text-decoration: none; 
+    padding: 14px 28px; 
+    border-radius: 12px; 
+    font-weight: bold; 
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-gold { 
+    background: var(--buzz-gold); 
+    color: #000; 
+    text-decoration: none; 
+    padding: 14px 28px; 
+    border-radius: 12px; 
+    font-weight: bold; 
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-primary:hover, .btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--shadow);
+}
+
+.btn-primary-sm { 
+    background: var(--citta-blue); 
+    color: white; 
+    text-decoration: none; 
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    font-size: 0.9rem; 
+    font-weight: bold; 
+}
+
+/* --- HERO (Rata Tengah) --- */
+.hero { 
+    padding: 180px 0 100px; 
+    text-align: center; 
+}
+
+.hero h1 { 
+    font-size: 3.8rem; 
+    line-height: 1.1; 
+    margin: 20px 0; 
+    font-weight: 800;
+}
+
 .text-gold { color: var(--buzz-gold-dark); }
-.badge { background: rgba(0, 102, 255, 0.1); color: var(--citta-blue); padding: 8px 16px; border-radius: 20px; font-weight: 600; }
 
-/* Feature Cards */
-.features { padding: 80px 0; background: rgba(0, 102, 255, 0.02); }
-.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-.card { background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); text-align: center; }
-.icon-box { color: var(--buzz-gold-dark); margin-bottom: 20px; }
-
-/* Shortcut Menu */
-.shortcut-menu {
-    position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
-    display: flex; flex-direction: column; gap: 15px;
-    background: var(--citta-blue); padding: 15px 10px; border-radius: 50px; z-index: 999;
+.badge { 
+    background: rgba(0, 102, 255, 0.1); 
+    color: var(--citta-blue); 
+    padding: 10px 20px; 
+    border-radius: 30px; 
+    font-weight: 700;
+    display: inline-block;
 }
-.shortcut-menu a { color: white; transition: 0.3s; }
-.shortcut-menu a:hover { color: var(--buzz-gold); }
 
-/* Level Section */
-.level-info { background: var(--text-main); color: var(--bg-body); padding: 80px 0; }
-.level-mockup { background: linear-gradient(45deg, var(--citta-blue), var(--buzz-gold)); padding: 50px; border-radius: 20px; font-weight: 800; color: white; }
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
 
-/* Helpers */
+/* --- FEATURES (Rata Tengah) --- */
+.features { 
+    padding: 100px 0; 
+    background: rgba(0, 102, 255, 0.02); 
+}
+
+.section-title { 
+    text-align: center; 
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.feature-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; 
+}
+
+.card { 
+    background: var(--card-bg); 
+    padding: 50px 30px; 
+    border-radius: 24px; 
+    border: 1px solid rgba(0,0,0,0.05); 
+    text-align: center; 
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--citta-blue);
+    transform: translateY(-5px);
+}
+
+.icon-box { 
+    color: var(--buzz-gold-dark); 
+    margin-bottom: 25px; 
+}
+
+/* --- SHORTCUT MENU (Diperkecil) --- */
+.shortcut-menu {
+    position: fixed; 
+    right: 20px; 
+    top: 50%; 
+    transform: translateY(-50%);
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px;
+    background: var(--citta-blue); 
+    padding: 15px 10px; 
+    border-radius: 40px; 
+    z-index: 999;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.shortcut-menu a { 
+    color: white; 
+    transition: 0.3s; 
+    display: flex;
+    justify-content: center;
+}
+
+.shortcut-menu a:hover { 
+    color: var(--buzz-gold); 
+    transform: scale(1.2);
+}
+
+/* --- LEVEL SECTION (Rata Tengah) --- */
+.level-info { 
+    background: var(--text-main); 
+    color: var(--bg-body); 
+    padding: 100px 0; 
+    text-align: center;
+}
+
+.level-info .flex-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.level-mockup { 
+    background: linear-gradient(45deg, var(--citta-blue), var(--buzz-gold)); 
+    padding: 25px 50px; 
+    border-radius: 50px; 
+    font-weight: 800; 
+    color: white; 
+    font-size: 1.8rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    display: inline-block;
+}
+
+/* --- HELPERS --- */
 .hidden { display: none !important; }
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-desktop { display: none; } /* Sembunyikan menu di mobile untuk kerapihan */
+    .hero-btns { flex-direction: column; }
+}
