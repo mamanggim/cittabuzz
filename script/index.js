@@ -1,5 +1,16 @@
-// Inisialisasi Ikon Lucide
+// Inisialisasi Ikon
 lucide.createIcons();
+
+// --- Fitur Spinner (3 Detik) ---
+window.addEventListener('load', () => {
+    const overlay = document.getElementById('global-loading-overlay');
+    setTimeout(() => {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+        }, 500);
+    }, 3000); // 3000ms = 3 Detik
+});
 
 // --- Fitur Musik ---
 const music = document.getElementById('bgMusic');
@@ -11,56 +22,35 @@ musicBtn.onclick = () => {
         music.pause();
         musicBtn.innerHTML = '<i data-lucide="music"></i>';
     } else {
-        music.play();
+        music.play().catch(() => alert("Klik di mana saja pada halaman terlebih dahulu untuk mengizinkan musik."));
         musicBtn.innerHTML = '<i data-lucide="volume-2"></i>';
     }
     isPlaying = !isPlaying;
     lucide.createIcons();
 };
 
-// --- Fitur Dark/Light Mode ---
+// --- Dark/Light Mode ---
 const themeToggle = document.getElementById('themeToggle');
-const htmlElement = document.documentElement;
+const html = document.documentElement;
 
 themeToggle.onclick = () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    htmlElement.setAttribute('data-theme', newTheme);
-    themeToggle.innerHTML = newTheme === 'light' ? 
-        '<i data-lucide="moon"></i>' : '<i data-lucide="sun"></i>';
-    
-    lucide.createIcons();
-    // Simpan preferensi ke local storage
+    const isLight = html.getAttribute('data-theme') === 'light';
+    const newTheme = isLight ? 'dark' : 'light';
+    html.setAttribute('data-theme', newTheme);
+    themeToggle.innerHTML = isLight ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
     localStorage.setItem('theme', newTheme);
+    lucide.createIcons();
 };
 
-// --- Fitur Multi-Bahasa ---
+// --- Multi-Bahasa ---
 const langToggle = document.getElementById('langToggle');
-let currentLang = 'ID';
-
 langToggle.onclick = () => {
-    currentLang = currentLang === 'ID' ? 'EN' : 'ID';
-    langToggle.innerText = currentLang === 'ID' ? 'EN' : 'ID';
-
-    const idElements = document.querySelectorAll('.lang-id');
-    const enElements = document.querySelectorAll('.lang-en');
-
-    if (currentLang === 'EN') {
-        idElements.forEach(el => el.classList.add('hidden'));
-        enElements.forEach(el => el.classList.remove('hidden'));
-    } else {
-        idElements.forEach(el => el.classList.remove('hidden'));
-        enElements.forEach(el => el.classList.add('hidden'));
-    }
+    const isID = langToggle.innerText === 'EN';
+    langToggle.innerText = isID ? 'ID' : 'EN';
+    document.querySelectorAll('.lang-id').forEach(el => el.classList.toggle('hidden', isID));
+    document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', !isID));
 };
 
-// Load preferensi tema saat halaman dibuka
-window.onload = () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        htmlElement.setAttribute('data-theme', savedTheme);
-        themeToggle.innerHTML = savedTheme === 'light' ? '<i data-lucide="moon"></i>' : '<i data-lucide="sun"></i>';
-        lucide.createIcons();
-    }
-};
+// Load Saved Theme
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) html.setAttribute('data-theme', savedTheme);
