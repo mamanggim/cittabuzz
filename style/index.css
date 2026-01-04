@@ -92,18 +92,66 @@ body {
 .icon-box { color: var(--citta-blue); margin-bottom: 15px; }
 .icon-box i { width: 32px; height: 32px; }
 
-/* --- 5. LEVEL INFO --- */
-.level-info { background: var(--text-main); color: var(--bg-body); padding: 80px 0; }
-[data-theme="dark"] .level-info { background: #1e293b; }
-.flex-row { display: flex; flex-direction: column; gap: 40px; align-items: center; }
-.list-features { list-style: none; padding: 0; }
-.list-features li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
-.list-features i { color: var(--buzz-lemon); flex-shrink: 0; }
-.inline-wave { font-size: inherit !important; vertical-align: baseline; }
+/* --- PERBAIKAN LEVEL INFO AGAR KONTRAS --- */
+.level-info { 
+    padding: 80px 0; 
+    background-color: var(--bg-body); /* Mengikuti tema utama */
+    color: var(--text-main); 
+}
+
+/* Membuat area konten level tampak seperti Card besar yang bersih */
+.level-content-wrapper {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .level-content-wrapper {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.flex-row { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+    align-items: center; 
+}
+
+.list-features { list-style: none; padding: 0; margin-top: 25px; }
+.list-features li { 
+    margin-bottom: 15px; 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 12px; 
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Icon check agar tetap menonjol */
+.list-features i { 
+    color: var(--citta-blue); 
+    flex-shrink: 0; 
+    margin-top: 3px;
+}
+
+/* Mockup Level 10 agar tetap berwarna gradasi tapi teksnya kontras */
 .level-mockup {
-    background: linear-gradient(45deg, var(--citta-blue), var(--buzz-lemon));
-    padding: 20px 40px; border-radius: 50px; font-weight: 800; color: #000;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #0066FF, #F4FF2B);
+    padding: 25px 50px; 
+    border-radius: 20px; 
+    font-weight: 800; 
+    color: #000; /* Tetap hitam karena backgroundnya kuning-biru terang */
+    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.2);
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+@media (min-width: 992px) {
+    .flex-row { flex-direction: row; text-align: left; justify-content: space-between; }
+    .text-side { flex: 1; }
+    .image-side { flex: 1; display: flex; justify-content: center; }
 }
 
 /* --- 6. FOOTER --- */
