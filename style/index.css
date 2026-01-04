@@ -22,6 +22,7 @@ body {
     color: var(--text-main); 
     margin: 0; 
     overflow-x: hidden; 
+    font-size: 14px; /* Dasar ukuran teks */
 }
 .container { width: 92%; max-width: 1200px; margin: 0 auto; }
 
@@ -72,110 +73,83 @@ body {
     padding: 8px 16px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; 
     display: inline-block; margin-bottom: 15px;
 }
-.hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin: 15px 0; }
-.hero .wave-text { font-size: 2.4rem; vertical-align: middle; }
-.hero p { max-width: 700px; margin: 0 auto 30px; line-height: 1.6; }
+.hero h1 { font-size: 2rem; font-weight: 800; line-height: 1.2; margin: 15px 0; }
+.hero .wave-text { font-size: 2rem; vertical-align: middle; }
+.hero p { max-width: 600px; margin: 0 auto 30px; line-height: 1.5; font-size: 1rem; }
 
 .hero-btns { display: flex; flex-direction: column; gap: 12px; align-items: center; }
 .btn-primary, .btn-gold {
-    padding: 14px 28px; border-radius: 12px; font-weight: 700;
-    text-decoration: none; width: 100%; max-width: 280px; text-align: center;
+    padding: 12px 24px; border-radius: 10px; font-weight: 700;
+    text-decoration: none; width: 100%; max-width: 250px; text-align: center; font-size: 0.95rem;
 }
-.btn-primary { background: var(--citta-blue); color: #fff !important; box-shadow: 0 4px 15px rgba(0,102,255,0.2); }
+.btn-primary { background: var(--citta-blue); color: #fff !important; }
 .btn-gold { background: var(--buzz-lemon); color: #1e293b !important; }
 
 /* --- 4. FEATURES --- */
-.features { padding: 80px 0; background: rgba(0, 102, 255, 0.02); text-align: center; }
+.features { padding: 60px 0; background: rgba(0, 102, 255, 0.02); text-align: center; }
 .section-title h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; }
-.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-.card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 40px; }
+.card { background: var(--card-bg); padding: 25px; border-radius: 15px; border: 1px solid rgba(0,0,0,0.05); }
+.card h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.card p { font-size: 0.9rem; line-height: 1.4; }
 .icon-box { color: var(--citta-blue); margin-bottom: 15px; }
-.icon-box i { width: 32px; height: 32px; }
 
-/* --- 5. LEVEL INFO (KONTRAS MENGIKUTI TEMA) --- */
-.level-info { 
-    padding: 80px 0; 
-    background-color: var(--bg-body); 
-    color: var(--text-main); 
-}
-
-.level-content-wrapper {
+/* --- 5. LEVEL INFO (PERBAIKAN RATA TENGAH & TIDAK MELEBAR) --- */
+.level-info { padding: 60px 0; text-align: center; }
+.level-card-custom {
     background: var(--card-bg);
-    padding: 40px;
-    border-radius: 24px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
-
-[data-theme="dark"] .level-content-wrapper {
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.flex-row { 
+.level-flex { 
     display: flex; 
     flex-direction: column; 
-    gap: 40px; 
     align-items: center; 
+    gap: 30px; 
 }
-
-.list-features { list-style: none; padding: 0; margin-top: 25px; }
+.level-text h2 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 800; }
+.level-text p { font-size: 0.95rem; max-width: 500px; margin: 0 auto 20px; }
+.list-features { 
+    list-style: none; padding: 0; margin: 0 auto; 
+    display: inline-block; text-align: left; 
+}
 .list-features li { 
-    margin-bottom: 15px; 
-    display: flex; 
-    align-items: flex-start; 
-    gap: 12px; 
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.9rem; margin-bottom: 10px; 
+    display: flex; align-items: center; gap: 10px; 
 }
-
-.list-features i { 
-    color: var(--citta-blue); 
-    flex-shrink: 0; 
-    margin-top: 3px;
-}
+.list-features i { color: var(--citta-blue); width: 16px; height: 16px; }
 
 .level-mockup {
     background: linear-gradient(135deg, #0066FF, #F4FF2B);
-    padding: 25px 50px; 
-    border-radius: 20px; 
-    font-weight: 800; 
-    color: #000; 
-    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.2);
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-@media (min-width: 992px) {
-    .flex-row { flex-direction: row; text-align: left; justify-content: space-between; }
-    .text-side { flex: 1; }
-    .image-side { flex: 1; display: flex; justify-content: center; }
+    padding: 15px 30px; border-radius: 12px; font-weight: 800;
+    color: #000; font-size: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 /* --- 6. FOOTER --- */
-.main-footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+.main-footer { padding: 30px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.85rem; }
 
 /* --- ANIMATIONS --- */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-8px); }
-}
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 .wave-text span { display: inline-block; animation: wave 2s infinite ease-in-out; }
 .citta { color: var(--citta-blue); }
 .buzz { color: var(--buzz-lemon-dark); }
-@keyframes wave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes wave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 
 /* --- RESPONSIVE --- */
-.shortcut-menu { position: fixed; right: 15px; top: 50%; transform: translateY(-50%); background: var(--citta-blue); padding: 12px 8px; border-radius: 30px; display: flex; flex-direction: column; gap: 20px; z-index: 999; }
+.shortcut-menu { position: fixed; right: 10px; top: 50%; transform: translateY(-50%); background: var(--citta-blue); padding: 10px 6px; border-radius: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
 .shortcut-menu a { color: #fff; }
+.shortcut-menu i { width: 18px; }
 .hidden { display: none !important; }
 
 @media (min-width: 768px) {
     .hero-btns { flex-direction: row; justify-content: center; }
-    .btn-primary, .btn-gold { width: auto; }
 }
 @media (min-width: 992px) {
-    .hero h1 { font-size: 3.5rem; }
-    .hero .wave-text { font-size: 3.8rem; }
-    .flex-row { flex-direction: row; text-align: left; }
-    .section-title h2 { font-size: 2.8rem; }
+    .hero h1, .hero .wave-text { font-size: 3rem; }
+    .level-flex { flex-direction: row; text-align: left; justify-content: space-between; }
+    .level-text { text-align: left; }
+    .level-text p, .list-features { margin-left: 0; }
 }
