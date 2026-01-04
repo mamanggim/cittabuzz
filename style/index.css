@@ -15,7 +15,6 @@
     --card-bg: #1e293b;
 }
 
-/* --- BASE RESET --- */
 * { box-sizing: border-box; scroll-behavior: smooth; }
 body { 
     font-family: 'Plus Jakarta Sans', sans-serif; 
@@ -24,9 +23,10 @@ body {
     margin: 0; 
     overflow-x: hidden; 
 }
+
 .container { width: 92%; max-width: 1200px; margin: 0 auto; }
 
-/* --- 1. SPINNER --- */
+/* --- 1. SPINNER LOADING --- */
 #global-loading-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: var(--bg-body); display: flex; flex-direction: column;
@@ -42,167 +42,115 @@ body {
     35% { transform: scale3D(0,0,1); } 
 }
 
-/* --- 2. HEADER (Fix Rapat & Anti-Tabrak) --- */
+/* --- 2. HEADER (Rapat & Sejajar) --- */
 .sticky-header {
     position: fixed; top: 0; width: 100%; background: var(--bg-header);
     backdrop-filter: blur(10px); z-index: 1000; padding: 10px 0;
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
+.header-wrapper { display: flex; justify-content: space-between; align-items: center; }
+.logo-wrapper { display: flex; align-items: center; text-decoration: none; gap: 6px; flex-shrink: 0; }
+.mini-logo { width: 32px; height: auto; animation: bounce 2s infinite ease-in-out; }
 
-.header-wrapper { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-
-/* Logo Grouping */
-.logo-wrapper { 
-    display: flex; 
-    align-items: center; 
-    text-decoration: none;
-    flex-shrink: 0; /* Logo tidak boleh mengecil */
-}
-
-.mini-logo { 
-    width: 32px; 
-    height: auto;
-    margin-right: 6px; /* Jarak rapat ke teks */
-    animation: bounce 2s infinite ease-in-out; 
-}
-
-.wave-text { 
-    font-size: 1.2rem; 
-    font-weight: 800; 
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
-}
+.wave-text { font-weight: 800; white-space: nowrap; display: inline-flex; }
+.header-wrapper .wave-text { font-size: 1.25rem; }
 
 .beta-badge {
-    background: #FF0000;
-    color: #ffffff;
-    font-size: 10px; 
-    padding: 2px 5px;
-    border-radius: 4px;
-    font-weight: 900;
-    margin-left: 5px;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
+    background: #FF0000; color: #fff; font-size: 10px; padding: 2px 6px;
+    border-radius: 4px; font-weight: 900; margin-left: 2px;
 }
 
-/* Controls Grouping */
-.controls { 
-    display: flex; 
-    align-items: center; 
-    gap: 4px; 
-}
-
+.controls { display: flex; align-items: center; gap: 5px; }
 .icon-btn, .text-btn {
-    padding: 5px; 
-    background: none;
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    color: var(--text-main);
+    padding: 5px; background: none; border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px; cursor: pointer; color: var(--text-main);
+    display: flex; align-items: center; justify-content: center;
 }
-
-.controls i, .controls svg {
-    width: 16px !important; 
-    height: 16px !important;
-}
-
-.text-btn {
-    font-size: 11px; 
-    font-weight: 800;
-    height: 28px;
-    padding: 0 6px;
-}
+.controls i, .controls svg { width: 18px !important; height: 18px !important; }
+.text-btn { font-size: 12px; font-weight: 800; min-width: 32px; height: 30px; }
 
 .btn-primary-sm {
-    background: var(--citta-blue);
-    color: #fff;
-    text-decoration: none;
-    padding: 7px 14px; 
-    font-size: 0.85rem;
-    font-weight: 700;
-    border-radius: 6px;
+    background: var(--citta-blue); color: #fff; text-decoration: none;
+    padding: 7px 14px; font-size: 0.85rem; font-weight: 700; border-radius: 8px;
 }
 
-/* --- 3. ANIMATIONS --- */
+/* --- 3. HERO SECTION (Body) --- */
+.hero { padding: 140px 0 60px; text-align: center; }
+
+/* Badge "Platform Interaksi Terbesar" */
+.badge { 
+    background: rgba(0, 102, 255, 0.1); 
+    color: var(--citta-blue); 
+    padding: 8px 18px; border-radius: 30px; 
+    font-weight: 700; font-size: 0.85rem;
+    display: inline-block; margin-bottom: 20px;
+}
+
+.hero h1 { 
+    font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin: 10px 0; 
+}
+.hero .wave-text { font-size: 2.6rem; vertical-align: middle; }
+
+.hero p { 
+    max-width: 700px; margin: 20px auto; font-size: 1rem; 
+    line-height: 1.6; color: var(--text-main); opacity: 0.9;
+}
+
+/* Tombol Body Hero */
+.hero-btns { 
+    display: flex; flex-direction: column; gap: 15px; 
+    margin-top: 35px; align-items: center; 
+}
+.btn-primary, .btn-gold {
+    padding: 16px 32px; border-radius: 14px; font-weight: 800;
+    text-decoration: none; font-size: 1rem; width: 100%; max-width: 300px;
+    transition: transform 0.2s; text-align: center;
+}
+.btn-primary { background: var(--citta-blue); color: #fff !important; box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3); }
+.btn-gold { background: var(--buzz-lemon); color: #1e293b !important; }
+.btn-primary:active, .btn-gold:active { transform: scale(0.96); }
+
+/* --- 4. LIST & VIP ALIGNMENT --- */
+.list-features { list-style: none; padding: 0; margin: 25px 0; text-align: left; }
+.list-features li { 
+    margin-bottom: 15px; display: flex; align-items: center; 
+    gap: 12px; font-size: 1rem; line-height: 1.4;
+}
+.list-features li i { color: var(--citta-blue); flex-shrink: 0; }
+
+/* Teks VIP CittaBuzz agar sejajar di dalam kalimat */
+.inline-wave { font-size: 1rem !important; vertical-align: baseline; }
+
+/* --- 5. ANIMATIONS --- */
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-6px); }
-    60% { transform: translateY(-3px); }
+    40% { transform: translateY(-8px); }
 }
-
-.wave-text span, .wave-text .citta, .wave-text .buzz { 
-    display: inline-block; 
-    animation: wave 2s infinite ease-in-out; 
-}
-.wave-text .citta { color: var(--citta-blue); animation-delay: 0.2s; }
-.wave-text .buzz { color: var(--buzz-lemon-dark); animation-delay: 0.4s; }
-
+.wave-text span { display: inline-block; animation: wave 2s infinite ease-in-out; }
+.citta { color: var(--citta-blue); }
+.buzz { color: var(--buzz-lemon-dark); }
 @keyframes wave {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+    50% { transform: translateY(-5px); }
 }
 
-/* --- 4. HERO & FEATURES (Seimbang) --- */
-.hero { padding: 140px 0 60px; text-align: center; }
-.hero h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.1; margin: 20px 0; }
-.hero h1 .wave-text { font-size: 3rem; vertical-align: baseline; }
-
-@media (min-width: 992px) { 
-    .hero h1 { font-size: 4rem; } 
-    .hero h1 .wave-text { font-size: 4.2rem; }
+/* --- 6. RESPONSIVE --- */
+@media (min-width: 768px) {
+    .hero-btns { flex-direction: row; justify-content: center; }
+    .btn-primary, .btn-gold { width: auto; }
 }
-
-.features { padding: 80px 0; background: rgba(0, 102, 255, 0.02); text-align: center; }
-.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-.card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); }
-
-/* --- 5. LEVEL & VIP (Fix Alignment) --- */
-.level-info { background: var(--text-main); color: var(--bg-body); padding: 80px 0; }
-.list-features { list-style: none; padding: 0; margin: 20px 0; display: inline-block; text-align: left; }
-
-.list-features li { 
-    margin-bottom: 15px; 
-    line-height: 1.5;
-    display: block; /* Menggunakan block agar teks mengalir natural */
+@media (min-width: 992px) {
+    .hero h1 { font-size: 3.8rem; }
+    .hero .wave-text { font-size: 4.2rem; }
+    .level-info .flex-row { display: flex; align-items: center; gap: 50px; text-align: left; }
 }
-
-/* Gunakan ini untuk CittaBuzz di dalam list */
-.list-features li i { 
-    margin-right: 10px; 
-    vertical-align: middle; 
-    color: var(--buzz-lemon);
-}
-
-.list-features .wave-text {
-    font-size: 1rem; /* Samakan dengan teks sekitarnya */
-    display: inline-block;
-    vertical-align: baseline; /* Menjaga teks tetap di baseline kalimat */
-}
-
-/* --- 6. FOOTER --- */
-.main-footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.1); }
-.main-footer .wave-text { font-size: 1.1rem; vertical-align: middle; }
-
-/* --- 7. UTILS & RESPONSIVE --- */
-.hidden { display: none !important; }
-.shortcut-menu {
-    position: fixed; right: 15px; top: 50%; transform: translateY(-50%);
-    background: var(--citta-blue); padding: 12px 8px; border-radius: 30px;
-    display: flex; flex-direction: column; gap: 20px; z-index: 999;
-}
-
 @media (max-width: 480px) {
-    .header-wrapper { gap: 5px; }
-    .wave-text { font-size: 1.1rem; }
-    .mini-logo { width: 28px; }
-    .beta-badge { font-size: 9px; padding: 1px 4px; }
-    .btn-primary-sm { padding: 6px 10px; font-size: 0.75rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero .wave-text { font-size: 2.2rem; }
+    .controls .text-btn, .controls .icon-btn { transform: scale(0.9); }
 }
+
+/* Footer Fix */
+.main-footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+.main-footer .wave-text { font-size: 1rem; }
+.hidden { display: none !important; }
