@@ -18,10 +18,9 @@
 
 * { box-sizing: border-box; scroll-behavior: smooth; }
 body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-body); color: var(--text-main); margin: 0; }
-
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-/* --- 1. SPINNER & LOADING --- */
+/* --- SPINNER --- */
 #global-loading-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: var(--bg-body); display: flex; flex-direction: column;
@@ -32,25 +31,37 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-
 @keyframes cubeGridScaleDelay { 0%, 70%, 100% { transform: scale3D(1,1,1); } 35% { transform: scale3D(0,0,1); } }
 #global-loading-overlay p { margin-top: 20px; font-weight: 800; color: var(--citta-blue); }
 
-/* --- 2. HEADER & NAVIGATION --- */
-.sticky-header { position: fixed; top: 0; width: 100%; background: var(--bg-header); backdrop-filter: blur(10px); z-index: 1000; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-
-.header-wrapper {
-    display: flex; justify-content: space-between; align-items: center;
-    max-width: 1200px; margin: 0 auto; padding: 0 5%;
+/* --- HEADER REPAIR --- */
+.sticky-header {
+    position: fixed; top: 0; width: 100%; background: var(--bg-header);
+    backdrop-filter: blur(10px); z-index: 1000; padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
-.nav-main { display: none; } /* Mobile Hidden */
-.mobile-only { display: flex; } /* Mobile Visible */
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.nav-main { display: none; } /* Default sembunyi di Mobile */
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* RESPONSIVE NAV & FLOATING MENU */
 @media (min-width: 992px) {
     .nav-main { display: flex; gap: 25px; }
     .nav-main a { text-decoration: none; color: var(--text-main); font-weight: 600; transition: 0.3s; }
     .nav-main a:hover { color: var(--citta-blue); }
-    .mobile-only { display: none; } /* Desktop Hidden */
+    
+    .mobile-only { display: none !important; } /* Sembunyikan Floating di Desktop */
 }
 
-/* --- 3. ANIMASI WAVE & LOGO --- */
+/* --- LOGO & WAVE --- */
 .logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 800; flex-shrink: 0; }
 .mini-logo { width: 32px; margin-right: 8px; animation: wave 2s infinite ease-in-out; }
 .citta { color: var(--citta-blue); }
@@ -64,39 +75,44 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-
     50% { transform: translateY(-8px); }
 }
 
-/* --- 4. HERO SECTION --- */
+/* --- HERO --- */
 .hero { padding: 180px 0 100px; text-align: center; }
-.hero h1 { font-size: 3.5rem; font-weight: 800; }
-.badge { background: rgba(0, 102, 255, 0.1); color: var(--citta-blue); padding: 8px 16px; border-radius: 20px; font-weight: 700; }
+.hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; }
+.badge { background: rgba(0, 102, 255, 0.1); color: var(--citta-blue); padding: 8px 16px; border-radius: 20px; font-weight: 700; display: inline-block; margin-bottom: 15px; }
 .hero-btns { display: flex; justify-content: center; gap: 15px; margin-top: 40px; }
 
-/* --- 5. SISTEM LEVEL & KONTRAS --- */
-.level-info {
-    background: var(--text-main); 
-    color: var(--bg-body);       
-    padding: 100px 0;
-    text-align: center;
-}
+/* --- FEATURES RATA TENGAH --- */
+.features { padding: 100px 0; background: rgba(0, 102, 255, 0.02); text-align: center; }
+.section-title { margin-bottom: 50px; }
+.section-title h2 { font-size: 2.5rem; font-weight: 800; display: flex; justify-content: center; align-items: center; gap: 10px; }
 
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.card { 
+    background: var(--card-bg); padding: 40px 30px; border-radius: 24px; 
+    text-align: center; border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; 
+    display: flex; flex-direction: column; align-items: center;
+}
+.card:hover { transform: translateY(-5px); border-color: var(--citta-blue); }
+.icon-box { color: var(--buzz-lemon-dark); margin-bottom: 20px; }
+
+/* --- LEVEL INFO & KONTRAS --- */
+.level-info { background: var(--text-main); color: var(--bg-body); padding: 100px 0; text-align: center; }
 .level-info .flex-row { display: flex; flex-direction: column; align-items: center; gap: 30px; }
 
-/* Paksa Kontras Mode Gelap */
 [data-theme="dark"] .level-info { background: #1e293b; color: #ffffff; }
-[data-theme="dark"] .level-info h2, 
-[data-theme="dark"] .level-info p,
-[data-theme="dark"] .level-info li { color: #ffffff !important; }
+[data-theme="dark"] .level-info h2, [data-theme="dark"] .level-info p { color: #ffffff !important; }
 
 .level-mockup {
     background: linear-gradient(45deg, var(--citta-blue), var(--buzz-lemon));
-    padding: 25px 50px; border-radius: 50px; font-weight: 800; color: #000;
-    font-size: 1.8rem; box-shadow: 0 15px 30px rgba(0,0,0,0.3); display: inline-block;
+    padding: 20px 40px; border-radius: 50px; font-weight: 800; color: #000;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3); display: inline-block;
 }
 
-/* --- 6. FOOTER & HELPERS --- */
+/* --- FOOTER & MISC --- */
 .main-footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
 .hidden { display: none !important; }
 
-.btn-primary-sm, .btn-primary { background: var(--citta-blue); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; }
+.btn-primary-sm, .btn-primary { background: var(--citta-blue); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; white-space: nowrap; }
 .btn-gold { background: var(--buzz-lemon); color: #000; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: 700; }
 
 .shortcut-menu {
@@ -104,7 +120,10 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-
     background: var(--citta-blue); padding: 15px 10px; border-radius: 40px;
     display: flex; flex-direction: column; gap: 15px; z-index: 999;
 }
-.shortcut-menu a { color: #fff; }
+.shortcut-menu a { color: #fff; display: flex; justify-content: center; }
 
-.list-features { list-style: none; padding: 0; margin-top: 20px; text-align: left; display: inline-block; }
-.list-features li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero-btns { flex-direction: column; align-items: center; }
+    .header-wrapper { width: 95%; }
+}
