@@ -86,6 +86,8 @@ body {
 /* --- TAMBAHAN KUNCI: Menangani span CittaBuzz agar tidak raksasa di paragraf --- */
 .inline-wave {
     font-size: inherit !important; /* Memaksa ukuran mengikuti paragraf sekitarnya */
+    display: inline-flex;
+    font-weight: 800;
 }
 
 .hero-btns { display: flex; flex-direction: column; gap: 12px; align-items: center; }
@@ -179,7 +181,10 @@ body {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-8px); }
 }
-.wave-text span { display: inline-block; animation: wave 2s infinite ease-in-out; }
+
+/* PERBAIKAN ANIMASI: Berlaku untuk wave-text (judul) DAN inline-wave (paragraf) */
+.wave-text span, .inline-wave span { display: inline-block; animation: wave 2s infinite ease-in-out; }
+
 .citta { color: var(--citta-blue); }
 .buzz { color: var(--buzz-lemon-dark); }
 @keyframes wave { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
