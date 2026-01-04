@@ -92,14 +92,13 @@ body {
 .icon-box { color: var(--citta-blue); margin-bottom: 15px; }
 .icon-box i { width: 32px; height: 32px; }
 
-/* --- PERBAIKAN LEVEL INFO AGAR KONTRAS --- */
+/* --- 5. LEVEL INFO (KONTRAS MENGIKUTI TEMA) --- */
 .level-info { 
     padding: 80px 0; 
-    background-color: var(--bg-body); /* Mengikuti tema utama */
+    background-color: var(--bg-body); 
     color: var(--text-main); 
 }
 
-/* Membuat area konten level tampak seperti Card besar yang bersih */
 .level-content-wrapper {
     background: var(--card-bg);
     padding: 40px;
@@ -129,20 +128,18 @@ body {
     line-height: 1.5;
 }
 
-/* Icon check agar tetap menonjol */
 .list-features i { 
     color: var(--citta-blue); 
     flex-shrink: 0; 
     margin-top: 3px;
 }
 
-/* Mockup Level 10 agar tetap berwarna gradasi tapi teksnya kontras */
 .level-mockup {
     background: linear-gradient(135deg, #0066FF, #F4FF2B);
     padding: 25px 50px; 
     border-radius: 20px; 
     font-weight: 800; 
-    color: #000; /* Tetap hitam karena backgroundnya kuning-biru terang */
+    color: #000; 
     box-shadow: 0 15px 35px rgba(0, 102, 255, 0.2);
     text-align: center;
     font-size: 1.2rem;
