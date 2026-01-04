@@ -3,7 +3,7 @@
     --bg-header: rgba(255, 255, 255, 0.95);
     --text-main: #1e293b;
     --citta-blue: #0066FF;
-    --buzz-lemon: #F4FF2B; /* Kuning Lemon */
+    --buzz-lemon: #F4FF2B; 
     --buzz-lemon-dark: #C5D100;
     --card-bg: #ffffff;
     --shadow: rgba(0, 0, 0, 0.1);
@@ -21,7 +21,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-
 
 .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-/* --- SPINNER --- */
+/* --- 1. SPINNER & LOADING --- */
 #global-loading-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: var(--bg-body); display: flex; flex-direction: column;
@@ -30,14 +30,28 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-
 .spinner-cube-grid { width: 40px; height: 40px; transform: rotate(45deg); }
 .spinner-cube-grid .cube { width: 33%; height: 33%; background-color: var(--citta-blue); float: left; animation: cubeGridScaleDelay 1.3s infinite ease-in-out; }
 @keyframes cubeGridScaleDelay { 0%, 70%, 100% { transform: scale3D(1,1,1); } 35% { transform: scale3D(0,0,1); } }
-#global-loading-overlay p { margin-top: 20px; font-weight: 800; color: var(--citta-blue); animation: fadeIn 2s infinite alternate; }
+#global-loading-overlay p { margin-top: 20px; font-weight: 800; color: var(--citta-blue); }
 
-/* --- HEADER --- */
+/* --- 2. HEADER & NAVIGATION --- */
 .sticky-header { position: fixed; top: 0; width: 100%; background: var(--bg-header); backdrop-filter: blur(10px); z-index: 1000; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-.header-wrapper { display: flex; justify-content: space-between; align-items: center; }
 
-/* --- ANIMASI WAVE & LOGO --- */
-.logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 800; }
+.header-wrapper {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1200px; margin: 0 auto; padding: 0 5%;
+}
+
+.nav-main { display: none; } /* Mobile Hidden */
+.mobile-only { display: flex; } /* Mobile Visible */
+
+@media (min-width: 992px) {
+    .nav-main { display: flex; gap: 25px; }
+    .nav-main a { text-decoration: none; color: var(--text-main); font-weight: 600; transition: 0.3s; }
+    .nav-main a:hover { color: var(--citta-blue); }
+    .mobile-only { display: none; } /* Desktop Hidden */
+}
+
+/* --- 3. ANIMASI WAVE & LOGO --- */
+.logo { display: flex; align-items: center; font-size: 1.5rem; font-weight: 800; flex-shrink: 0; }
 .mini-logo { width: 32px; margin-right: 8px; animation: wave 2s infinite ease-in-out; }
 .citta { color: var(--citta-blue); }
 .buzz { color: var(--buzz-lemon-dark); }
@@ -50,33 +64,46 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-
     50% { transform: translateY(-8px); }
 }
 
-/* --- HERO --- */
+/* --- 4. HERO SECTION --- */
 .hero { padding: 180px 0 100px; text-align: center; }
 .hero h1 { font-size: 3.5rem; font-weight: 800; }
 .badge { background: rgba(0, 102, 255, 0.1); color: var(--citta-blue); padding: 8px 16px; border-radius: 20px; font-weight: 700; }
 .hero-btns { display: flex; justify-content: center; gap: 15px; margin-top: 40px; }
 
-/* --- CARDS --- */
-.features { padding: 100px 0; background: rgba(0, 102, 255, 0.02); }
-.section-title { text-align: center; margin-bottom: 50px; }
-.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card { background: var(--card-bg); padding: 40px; border-radius: 20px; text-align: center; border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; }
-.card:hover { transform: translateY(-5px); border-color: var(--citta-blue); }
-.icon-box { color: var(--buzz-lemon-dark); margin-bottom: 20px; }
+/* --- 5. SISTEM LEVEL & KONTRAS --- */
+.level-info {
+    background: var(--text-main); 
+    color: var(--bg-body);       
+    padding: 100px 0;
+    text-align: center;
+}
 
-/* --- LEVELS (Rata Tengah) --- */
-.level-info { background: var(--text-main); color: #fff; padding: 100px 0; text-align: center; }
 .level-info .flex-row { display: flex; flex-direction: column; align-items: center; gap: 30px; }
-.level-mockup { background: linear-gradient(45deg, var(--citta-blue), var(--buzz-lemon)); padding: 25px 50px; border-radius: 50px; font-weight: 800; color: #000; font-size: 1.8rem; box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
 
-/* --- FOOTER (Rata Tengah) --- */
+/* Paksa Kontras Mode Gelap */
+[data-theme="dark"] .level-info { background: #1e293b; color: #ffffff; }
+[data-theme="dark"] .level-info h2, 
+[data-theme="dark"] .level-info p,
+[data-theme="dark"] .level-info li { color: #ffffff !important; }
+
+.level-mockup {
+    background: linear-gradient(45deg, var(--citta-blue), var(--buzz-lemon));
+    padding: 25px 50px; border-radius: 50px; font-weight: 800; color: #000;
+    font-size: 1.8rem; box-shadow: 0 15px 30px rgba(0,0,0,0.3); display: inline-block;
+}
+
+/* --- 6. FOOTER & HELPERS --- */
 .main-footer { padding: 40px 0; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
-
-/* --- HELPERS --- */
 .hidden { display: none !important; }
+
 .btn-primary-sm, .btn-primary { background: var(--citta-blue); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; }
 .btn-gold { background: var(--buzz-lemon); color: #000; text-decoration: none; padding: 12px 25px; border-radius: 10px; font-weight: 700; }
-.shortcut-menu { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); background: var(--citta-blue); padding: 15px 10px; border-radius: 40px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+
+.shortcut-menu {
+    position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
+    background: var(--citta-blue); padding: 15px 10px; border-radius: 40px;
+    display: flex; flex-direction: column; gap: 15px; z-index: 999;
+}
 .shortcut-menu a { color: #fff; }
 
 .list-features { list-style: none; padding: 0; margin-top: 20px; text-align: left; display: inline-block; }
