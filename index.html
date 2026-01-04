@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CittaBuzz - Social Growth Ecosystem</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/index.css">
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <link rel="icon" type="image/x-icon" href="assets/ico32px.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/ios180px.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/aos192px.png">
 </head>
 <body>
 
@@ -17,7 +21,7 @@
             <div class="cube cube4"></div><div class="cube cube5"></div><div class="cube cube6"></div>
             <div class="cube cube7"></div><div class="cube cube8"></div><div class="cube cube9"></div>
         </div>
-        <p>Follow • Buzz • Popular</p>
+        <p class="loading-text">Follow • Buzz • Popular</p>
     </div>
 
     <audio id="bgMusic" loop>
@@ -26,10 +30,11 @@
 
     <header class="sticky-header">
         <div class="container header-wrapper">
-            <div class="logo wave-text">
-                <img src="assets/logo.png" alt="CittaBuzz Logo" class="main-logo-img">
+            <a href="index.html" class="logo-wrapper wave-text">
+                <img src="assets/logo.png" alt="Logo" class="mini-logo">
                 <span class="citta">Citta</span><span class="buzz">Buzz</span>
-            </div>
+                <span class="beta-badge">BETA</span>
+            </a>
             
             <nav class="nav-main">
                 <a href="#hero" class="lang-id">Beranda</a><a href="#hero" class="lang-en hidden">Home</a>
