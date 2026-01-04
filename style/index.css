@@ -46,14 +46,38 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-
     .mobile-only { display: none !important; }
 }
 
-/* --- 3. ANIMASI WAVE --- */
-.logo { display: flex; align-items: center; font-size: 1.4rem; font-weight: 800; flex-shrink: 0; }
-.mini-logo { width: 28px; margin-right: 6px; animation: wave 2s infinite ease-in-out; }
-.citta { color: var(--citta-blue); }
-.buzz { color: var(--buzz-lemon-dark); }
+/* --- 3. ANIMASI WAVE (NON-SIMULTAN) --- */
+.logo { 
+    display: flex; 
+    align-items: center; 
+    font-size: 1.4rem; 
+    font-weight: 800; 
+    flex-shrink: 0; 
+}
 
-.wave-text span { display: inline-block; animation: wave 2s infinite ease-in-out; }
-.wave-text .buzz { animation-delay: 0.3s; }
+/* Logo bergerak pertama kali */
+.mini-logo { 
+    width: 28px; 
+    margin-right: 6px; 
+    animation: wave 2s infinite ease-in-out; 
+    animation-delay: 0s; 
+}
+
+/* Teks Citta & Buzz menggunakan animasi yang sama tapi delay berbeda */
+.wave-text span { 
+    display: inline-block; 
+    animation: wave 2s infinite ease-in-out; 
+}
+
+.wave-text .citta { 
+    color: var(--citta-blue);
+    animation-delay: 0.2s; /* Muncul setelah logo */
+}
+
+.wave-text .buzz { 
+    color: var(--buzz-lemon-dark); 
+    animation-delay: 0.4s; /* Muncul terakhir */
+}
 
 @keyframes wave {
     0%, 100% { transform: translateY(0); }
